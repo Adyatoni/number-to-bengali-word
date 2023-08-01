@@ -1,5 +1,6 @@
 from .utils import (float_int_extraction, fraction_to_words, generate_segments,
-                    input_sanitizer, whole_part_word_gen)
+                    generate_segments_for_year, input_sanitizer,
+                    whole_part_word_gen, whole_part_word_gen_for_year)
 
 
 def to_bn_word(number):
@@ -12,9 +13,15 @@ def to_bn_word(number):
 
     whole, fraction = float_int_extraction(number)
 
-    whole_segments = generate_segments(whole)
+    if number > 1100 and number<2000:
+        whole_segments = generate_segments_for_year(whole)
 
-    generated_words = whole_part_word_gen(whole_segments)
+        generated_words = whole_part_word_gen_for_year(whole_segments)
+
+    else:
+        whole_segments = generate_segments(whole)
+
+        generated_words = whole_part_word_gen(whole_segments)
 
     if fraction:
         if generated_words:
