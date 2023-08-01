@@ -116,6 +116,6 @@ units = {
     'koti': 'কোটি',
     'lokkho': 'লক্ষ',
     'hazar': 'হাজার',
-    'sotok': 'শত',
+    'sotok': 'শো',
     'ekok': '',
 }
