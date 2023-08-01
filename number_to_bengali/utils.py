@@ -36,6 +36,23 @@ def generate_segments(number):
 
     return segments
 
+def generate_segments_for_year(number):
+    """
+    Generating the unit segments such as koti, lokkho
+    """
+    segments = dict()
+    segments['koti'] = math.floor(number/10000000)
+    number = number % 10000000
+    segments['lokkho'] = math.floor(number/100000)
+    number = number % 100000
+    #segments['hazar'] = math.floor(number/1000)
+    number = number % 10000
+    segments['sotok'] = math.floor(number/100)
+    number = number % 100
+    segments['ekok'] = number
+
+    return segments
+
 
 def float_int_extraction(number):
     """
@@ -60,6 +77,19 @@ def whole_part_word_gen(segments):
                 " " + units[segment] + " "
 
     return generated_words[:-2]
+
+
+def whole_part_word_gen_for_year(segments):
+    """
+    Generating the bengali word for the whole part of the number
+    """
+    generated_words = ''
+    for segment in segments:
+            if segments[segment]:
+                generated_words += numeric_words[str(segments[segment])] + \
+                    "" + units[segment] + " "
+
+    return generated_words.replace('শত', 'শো')
 
 
 def fraction_to_words(fraction):
