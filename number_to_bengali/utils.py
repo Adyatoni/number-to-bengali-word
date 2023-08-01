@@ -87,7 +87,7 @@ def whole_part_word_gen_for_year(segments):
     for segment in segments:
             if segments[segment]:
                 generated_words += numeric_words[str(segments[segment])] + \
-                    "" + units[segment] + " "
+                    " " + units[segment] + " "
 
     return generated_words.replace('শত', 'শো')
 
