@@ -9,6 +9,10 @@ def to_bn_word(number):
     """
 
     generated_words = ""
+
+    number = number.replace(",","")
+    number = number.replace("/","")
+    
     number = input_sanitizer(number)
 
     whole, fraction = float_int_extraction(number)
